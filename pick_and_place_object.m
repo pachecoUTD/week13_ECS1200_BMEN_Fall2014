@@ -5,6 +5,8 @@
 % a = arduino('COM3');
 % Note: your COM port number may be different
 
+% start timer
+tic
  
 %% ADD COMMENT HERE
 initialize_motor5
@@ -227,5 +229,7 @@ finalPotLocation = move2Location(a, motor5, motorID, ...
     potRange(motorID,:), potDesiredLocation, moveTime, pauseTime, LocTol);
 fprintf('reached position %g\n', finalPotLocation);
 
+% stop timer
+toc
 
 
