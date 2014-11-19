@@ -11,7 +11,6 @@ tic
 %% ADD COMMENT HERE
 initialize_motor5
 
-
 %% ADD COMMENT HERE
 
 % forward is opening <-- CHANGE THIS COMMENT TO MATCH WHAT YOUR ROBOT DOES
@@ -45,7 +44,7 @@ potRange(Gripper_ID, :) = [681 980]; % <-- CHANGE THESE VALUES
 potRange(BaseMotion_ID, :) = [320 386]; % <-- CHANGE THESE VALUES
 potRange(ElbowMotion_ID, :) = [930 1023]; % <-- CHANGE THESE VALUES
 potRange(WristMotion_ID, :) = [532 670];  % <-- CHANGE THESE VALUES
-potRange(BaseRotation_ID, :) = [380 600]; % <-- CHANGE THESE VALUES
+potRange(BaseRotation_ID, :) = [400 650]; % <-- CHANGE THESE VALUES
  
 
 %% start by moving all motors to center and high up position
@@ -123,8 +122,8 @@ fprintf('reached position %g\n', finalPotLocation);
 
 
 %% Move base rotation motor to left towards pick-up object region
-moveTime = 0.10; pauseTime = 0.15; LocTol = 3;
-motorID = BaseRotation_ID; potDesiredLocation = 576;
+moveTime = 0.1; pauseTime = 0.15; LocTol = 5;
+motorID = BaseRotation_ID; potDesiredLocation = 640;
 fprintf('Moving %s motor to %g... ', motorNames{motorID}, potDesiredLocation);
 finalPotLocation = move2Location(a, motor5, motorID, ...
     potRange(motorID,:), potDesiredLocation, moveTime, pauseTime, LocTol);
@@ -195,8 +194,8 @@ fprintf('reached position %g\n', finalPotLocation);
 
  
 %% Move base rotation motor to right to drop-off position
-moveTime = 0.10; pauseTime = 0.15; LocTol = 5;
-motorID = BaseRotation_ID; potDesiredLocation = 390;
+moveTime = 0.05; pauseTime = 0.15; LocTol = 5;
+motorID = BaseRotation_ID; potDesiredLocation = 435;
 fprintf('Moving %s motor to %g... ', motorNames{motorID}, potDesiredLocation);
 finalPotLocation = move2Location(a, motor5, motorID, ...
     potRange(motorID,:), potDesiredLocation, moveTime, pauseTime, LocTol);
